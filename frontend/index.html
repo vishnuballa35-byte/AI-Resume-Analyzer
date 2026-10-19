@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Analyze your resume against job descriptions and discover relevant skills.">
+    <title>AI Resume Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="navbar">
+        <a class="brand" href="#">
+            <span class="brand-icon">R</span>
+            <span>Resume<span class="accent">AI</span></span>
+        </a>
+        <span class="nav-label">SMART CAREER TOOLS</span>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <div class="eyebrow"><span class="live-dot"></span> YOUR NEXT CAREER MOVE</div>
+            <h1>Make your resume<br><span class="accent">stand out.</span></h1>
+            <p>Compare your resume with a job description, discover relevant skills, and find areas to improve.</p>
+        </section>
+
+        <section class="workspace">
+            <div class="panel">
+                <div class="panel-heading">
+                    <span class="step">01</span>
+                    <div>
+                        <h2>Upload your resume</h2>
+                        <p>Upload a text-based PDF file.</p>
+                    </div>
+                </div>
+
+                <label class="upload-zone" id="dropZone" for="resumeFile">
+                    <div class="upload-icon">↑</div>
+                    <strong id="uploadTitle">Choose your resume</strong>
+                    <span id="uploadHint">Click to browse or drag a PDF here</span>
+                    <span class="file-limit">PDF FILES ONLY</span>
+                </label>
+                <input type="file" id="resumeFile" accept=".pdf,application/pdf" hidden>
+
+                <div class="file-info" id="fileInfo" hidden>
+                    <span class="file-badge">PDF</span>
+                    <span id="fileName"></span>
+                    <button id="removeFile" class="remove-btn" type="button" aria-label="Remove resume">×</button>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-heading">
+                    <span class="step">02</span>
+                    <div>
+                        <h2>Job description</h2>
+                        <p>Paste the job requirements below.</p>
+                    </div>
+                </div>
+
+                <label for="jobDescription" class="field-label">TARGET ROLE REQUIREMENTS</label>
+                <textarea id="jobDescription" placeholder="Example: We are looking for a Python developer with SQL, machine learning, Git, problem-solving, and communication skills..."></textarea>
+                <div class="textarea-footer">
+                    <span>Include skills and qualifications</span>
+                    <span id="charCount">0 characters</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="action-row">
+            <button id="analyzeBtn" class="primary-btn" type="button">
+                Analyze my resume <span>→</span>
+            </button>
+            <p>Your resume is processed for analysis and is not intentionally stored by this app.</p>
+        </div>
+
+        <div id="status" class="status" role="status" aria-live="polite" hidden></div>
+
+        <section id="results" hidden>
+            <div class="results-heading">
+                <div>
+                    <div class="eyebrow">YOUR ANALYSIS</div>
+                    <h2>Resume insights</h2>
+                    <p>Use these results to improve your application.</p>
+                </div>
+                <button id="downloadBtn" class="secondary-btn" type="button">Download report ↓</button>
+            </div>
+
+            <div class="results-grid">
+                <article class="result-card score-card">
+                    <span class="card-label">ESTIMATED MATCH</span>
+                    <div class="score-number"><span id="matchScore">0</span><small>%</small></div>
+                    <div class="progress-track"><div id="scoreBar" class="progress-fill"></div></div>
+                    <p>Based on detected skills and text similarity.</p>
+                </article>
+
+                <article class="result-card">
+                    <span class="card-label">MATCHING SKILLS</span>
+                    <div class="result-number" id="matchingCount">0</div>
+                    <p>Skills detected in both texts.</p>
+                </article>
+
+                <article class="result-card">
+                    <span class="card-label">SKILLS TO REVIEW</span>
+                    <div class="result-number" id="missingCount">0</div>
+                    <p>Job skills not detected in your resume.</p>
+                </article>
+            </div>
+
+            <div class="skills-grid">
+                <article class="panel">
+                    <h3>✓ Matching skills</h3>
+                    <div id="matchingSkills" class="skill-list"></div>
+                </article>
+                <article class="panel">
+                    <h3>＋ Skills to review</h3>
+                    <div id="missingSkills" class="skill-list"></div>
+                </article>
+            </div>
+
+            <article class="panel detected-panel">
+                <h3>Skills detected in your resume</h3>
+                <div id="resumeSkills" class="skill-list"></div>
+            </article>
+
+            <p class="disclaimer">This is an approximate text and skill-matching score, not an official ATS score or a prediction of hiring success. Verify all suggested skills against your actual abilities.</p>
+        </section>
+    </main>
+
+    <footer>
+        <span>ResumeAI · Built with Python and machine learning tools</span>
+        <span>Career growth starts with a better application.</span>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
