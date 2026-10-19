@@ -6,4 +6,4 @@
 - Built a FastAPI backend and deployed the frontend and backend using Netlify and Render.
 
 **Live Demo:** https://funny-youtiao-e84ed7.netlify.app/  
-**GitHub:** [Insert your public GitHub repository URL]
+**GitHub:** https://github.com/vishnuballa35-byte/AI-Resume-Analyzer
