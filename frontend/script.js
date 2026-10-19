@@ -1,5 +1,7 @@
 
-const API_URL = "https://ai-resume-analyzer-4bla.onrender.com/";
+
+const API_URL = "https://ai-resume-analyzer-4bla.onrender.com";
+
 
 const resumeInput = document.getElementById("resumeFile");
 const dropZone = document.getElementById("dropZone");
