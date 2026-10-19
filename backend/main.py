@@ -1,7 +1,6 @@
 
 import re
 
-
 import pymupdf
 from fastapi import FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
@@ -11,8 +10,6 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 app = FastAPI(title="AI Resume Analyzer API", version="1.0.0")
 
-# Development configuration. Restrict this to your actual frontend
-# origins before deploying a public production application.
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
@@ -117,7 +114,7 @@ async def analyze_resume(
         )
 
     try:
-       with pymupdf.open(stream=pdf_bytes, filetype="pdf") as pdf:
+        with pymupdf.open(stream=pdf_bytes, filetype="pdf") as pdf:
             if pdf.page_count > 30:
                 raise HTTPException(
                     status_code=400,
